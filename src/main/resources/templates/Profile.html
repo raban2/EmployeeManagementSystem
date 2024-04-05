@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://thyemleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+</head>
+<body>
+
+	<th:block th:insert="Header.html"></th:block>
+
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header text-center bg-primary">
+				<h5>Department Details</h5>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-4">FirstName</div>
+					<div class="col-6">
+						[[${session.validuser.fname}]]
+						<!-- getting fname from the session object 'validuser' -->
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-4">LastName</div>
+					<div class="col-6">
+						[[${session.validuser.lname}]]
+						<!-- name must me same in the pojo class -->
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-4">Email</div>
+					<div class="col-6">
+						[[${session.validuser.email}]]
+						<!-- name must me same in the pojo class -->
+					</div>
+				</div>
+
+
+			</div>
+
+
+			<div class="card-footer text-center bg-warning">copyright@2024</div>
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th ="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Department List</title>
+</head>
+</head>
+<body>
+	 <th:block th:insert = "Header.html"></th:block>   
+ 
+
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header text-center bg-primary">
+				<h5>Employee Details</h5>
+			</div>
+			<div class="card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Gender</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>DoB</th>
+							<th>Company</th>
+							<th>Post</th>
+							<th>Country</th>
+							<th>Department</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each = "emp: ${empList}">
+							<td>[[${emp.fname}]]</td>
+							<td>[[${emp.lname}]]</td>
+							<td>[[${emp.gender}]]</td>
+							<td>[[${emp.phone}]]</td>
+							<td>[[${emp.email}]]</td>
+							<td>[[${emp.dob}]]</td>
+							<td>[[${emp.company}]]</td>
+							<td>[[${emp.post}]]</td>
+							<td>[[${emp.address.country}]]</td>
+							<td>[[${emp.department[0].dpt_name}]]</td>
+							<td>  <!-- @{ is used to define the links and urls in  thymeleaf} -->
+							    <a th:href = "@{/employee/edit(id=${emp.id})}"><input type= "submit" value ="Edit" class ="btn btn-success"/></a>
+							    <a th:href = "@{/employee/delete(id=${emp.id})}"><input type= "submit" value ="Delete" class ="btn btn-danger"/></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="card-footer text-center bg-warning">copyright@2024</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
